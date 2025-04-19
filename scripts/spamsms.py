@@ -39,10 +39,27 @@ green = "\033[92m"
 yellow = "\033[93m"
 cyan = "\033[96m"
 
+# Định nghĩa các màu
+trang = "\033[1;37m"
+xanh_la = "\033[1;32m"
+xanh_duong = "\033[1;34m"
+do = "\033[1;31m"
+vang = "\033[1;33m"
+tim = "\033[1;35m"
+xanhnhat = "\033[1;36m"
+reset = "\033[0m"
+bold = "\033[1m"
+red = "\033[91m"
+green = "\033[92m"
+yellow = "\033[93m"
+cyan = "\033[96m"
+luc = '\033[1;32m'  # Xanh lá
+vang = '\033[1;33m'
+reset = '\033[0m'
 # Đánh Dấu Bản Quyền
-HĐ_tool = "trang + trang + [do + +_+ trang ] => "
-mquang = "trang + trang + [do + ÷_+ trang ] => "
-thanh = "trang + trang + '-------------------------------------------------------------------------'"
+LK_tool = "trang + trang + [do + +_+ trang ] => "
+tkhoi = "trang + trang + [do + ÷_+ trang ] => "
+krystal = "trang + trang + '-------------------------------------------------------------------------'"
 
 # Hàm xóa màn hình
 def clear_screen():
@@ -51,7 +68,7 @@ def clear_screen():
 # Lấy ngày giờ hiện tại
 def get_current_datetime():
     now = datetime.datetime.now()
-    date = now.strftime("%Y-%m-%d")
+    date = now.strftime("%d/%m/%Y")
     time = now.strftime("%H:%M:%S")
     return date, time
 
@@ -76,14 +93,14 @@ def get_location(ip):
         return None
 
 # Lấy thời tiết từ OpenWeatherMap
-def get_weather(city_name, api_key):
+def get_weather(city_name):
     try:
-        weather_url = f'http://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={api_key}&units=metric'
+        weather_url = f'https://keyherlyswar.x10.mx/Apidocs/weather.php?q={city_name}'
         response = requests.get(weather_url)
         if response.status_code == 200:
             weather_data = response.json()
-            temperature = weather_data['main']['temp']
-            weather_description = weather_data['weather'][0]['description']
+            temperature = weather_data["0"]["current"]["temperature"]
+            weather_description = weather_data["0"]["current"]["winddisplay"]
             return f"{temperature}°C, {weather_description}"
         else:
             return "Không thể lấy thông tin thời tiết."
@@ -106,10 +123,9 @@ def display_banner():
             location = "Không thể lấy vị trí"
     else:
         location = "Không thể lấy địa chỉ IP"
-    
-    # Thêm thông tin thời tiết vào banner
-    API_KEY = 'YOUR_OPENWEATHERMAP_API_KEY'  # Thay thế bằng API Key của bạn
-    weather_info = get_weather(city, API_KEY)
+
+
+    weather_info = get_weather(city)
 
     # Banner với thông tin động
     banner = f"""
@@ -118,22 +134,22 @@ def display_banner():
 ██░████░██░█░██░█░▀▀░█░▀▀▄██░▄▀██░▀▀▄█░▀▀░█▄▄▀██░██░▀▀░█░███
 ██░▀▀░██▄▄▄█▄██▄█▄██▄█▄█▄▄██░██░█▄█▄▄█▀▀▀▄█▄▄▄██▄██▄██▄█▄▄██
 ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-= = = = = = = = = = = = = = = = = = = = = = = = = 
+  = = = = = = = = = = = = = = = = = = = = = = = = = = = = =  
 
-    Ａｕｔｈｏｒ: Lương Trường Khôi
-    G i t h u b: LunarKrystal
-    Ｆａｃｅｂｏｏｋ: https://www.facebook.com/LunarKrystal.Dev
+            Ａｕｔｈｏｒ: Lương Trường Khôi
+            Ｇｉｔｈｕｂ: LunarKrystal
+            Ｆａｃｅｂｏｏｋ: Lương Trường Khôi (LunarKrystal)
 
-    ---------------------------
-    Ngày:{reset} {current_date}
-    Giờ:{reset} {current_time}
-    Địa chỉ IP:{reset} {ip_address}
-    Vị trí:{reset} {location}
-    Thời tiết:{reset} {weather_info}
-    ---------------------------
-    ENTER ĐỂ VÀO TOOL SPAM SMS VIP 😋
-    """
-    
+            ---------------------------
+            Ngày: {reset} {current_date}
+            Giờ: {reset} {current_time}
+            Địa chỉ IP: {reset} {ip_address}
+            Vị trí: {reset} {location}
+            Thời tiết: {reset} {weather_info}
+            ---------------------------
+            ENTER ĐỂ VÀO TOOL SPAM SMS VIP 😋
+            """
+
     # Hiển thị banner
     Anime.Fade(Center.Center(banner), Colors.blue_to_green, Colorate.Vertical, enter=True)
 
@@ -144,9 +160,6 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-    
-
 
 # Danh sách các họ, tên đệm và tên phổ biến
 last_names = ['Nguyễn', 'Trần', 'Lê', 'Phạm', 'Vũ', 'Hoàng']
@@ -3498,14 +3511,6 @@ def send_otp_via_takomo(sdt):
 ##################################################################################################################################################################################
 
 ##################################################################################################################################################################################
-
-
-
-
-
-
-
-
 
 
 

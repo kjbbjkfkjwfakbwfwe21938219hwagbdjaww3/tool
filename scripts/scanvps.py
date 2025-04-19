@@ -1,6 +1,7 @@
 import requests
 import socket
 from concurrent.futures import ThreadPoolExecutor, as_completed
+import os
 
 random_url = 'https://computernewb.com/vncresolver/api/scans/vnc/random'
 detail_url_base = 'https://computernewb.com/vncresolver/api/scans/vnc/id/'
@@ -104,7 +105,7 @@ def search_by_asn_parallel(asn, num_threads):
     else:
         print(f"Không thể tìm kiếm theo ASN: {response.status_code}")
 
-
+os.system("cls") if os.name == "nt" else os.system("clear")
 print("""
  __      ___   _  _____ 
  \ \    / / \ | |/ ____|

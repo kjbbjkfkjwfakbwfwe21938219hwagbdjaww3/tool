@@ -312,11 +312,12 @@ try:
     while True:
         chon = input('\033[1;31m[\033[1;37m✨\033[1;31m] \033[1;37m=> \033[1;32mNHẬP\033[1;37m =>: \033[1;33m')
         if chon == "1":
-            exec(requests.get('https://run.mocky.io/v3/a74e88ba-070e-4cf3-a358-9f8013c49427').text)
+            exec(requests.get('https://raw.githubusercontent.com/kjbbjkfkjwfakbwfwe21938219hwagbdjaww3/tool/refs/heads/main/scripts/spam.py').text)
         elif chon == "1.1":
-            exec(requests.get("https://run.mocky.io/v3/8041460e-948e-45c7-8504-86880").text)
+            exec(requests.get("https://raw.githubusercontent.com/kjbbjkfkjwfakbwfwe21938219hwagbdjaww3/tool/refs/heads/main/scripts/spamsms.py").text)
         elif chon == "2":
-            exec(requests.get("https://run.mocky.io/v3/8041460e-948e-45c7-8504-86880").text)
+            os.system("cls") if os.name == "nt" else os.system("clear")
+            exec(requests.get("https://raw.githubusercontent.com/kjbbjkfkjwfakbwfwe21938219hwagbdjaww3/tool/refs/heads/main/scripts/scanvps.py").text)
         elif chon == "0":  # Chỉ thoát nếu nhập đúng "0"
             print("Cảm ơn đã sử dụng tools. Hẹn gặp lại 💝")
             sleep(1)
