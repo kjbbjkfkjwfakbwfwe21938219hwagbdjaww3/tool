@@ -164,7 +164,7 @@ while True:
     
         print("\033[1;31m[\033[1;39m1\033[1;31m] \033[1;39mNhập Key Để Vào Tool Nhé ")
     
-        chon = input('\033[1;39m[\033[1;31m×\033[1;39m] \033[1;39m>> \033[1;39m[\033[1;32mNhập Số\033[1;39m]\033[1;39m: \033[1;32m')
+        chon = input('\033[1;39m[\033[1;31m×\033[1;39m] \033[1;39m>> \033[1;39m[\033[1;32mNhập Key\033[1;39m]\033[1;39m: \033[1;32m')
         
         response = requests.get(urlkey)
         remote_data = response.text.strip()
